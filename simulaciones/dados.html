@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzamiento de Dados - Simulación de Eventos Discretos</title>
+    <meta name="description" content="Simulación interactiva de lanzamiento de dados para estudiar experimentos aleatorios y distribución de sumas.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/dados.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../html/index.html" class="nav-title" style="text-decoration: none; color: inherit;">SimEventos</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">🎲 Lanzamiento de Dados</h1>
+            <p class="hero-subtitle">Se lanzan 2 dados; si la suma es 7 gana el jugador. La casa cobra 2 Bs por juego y paga 5 Bs si sale 7.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="simulations" aria-labelledby="section-title">
+            <div class="main">
+                <h2 id="section-title" class="section-title">Parámetros y resultados de la simulación</h2>
+
+                <div class="grid">
+                    <form id="formDados" class="panel card" aria-describedby="form-help">
+                        <fieldset class="fieldset">
+                            <legend class="legend">Lanzamiento de Dados</legend>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="numSim" class="label">Cantidad de simulaciones (corridas)</label>
+                                    <input type="number" id="numSim" class="input" inputmode="numeric" min="1" step="1" value="5" required aria-describedby="numSim-help" />
+                                    <small id="numSim-help" class="hint">Simulaciones independientes; en cada una se reinician los contadores.</small>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="nmj" class="label">Juegos por simulación</label>
+                                    <input type="number" id="nmj" class="input" inputmode="numeric" min="1" step="1" value="10" required />
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="puj" class="label">Ingreso por juego de la casa [Bs]</label>
+                                    <input type="number" id="puj" class="input" inputmode="decimal" min="0" step="0.01" value="2" required />
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="cus7" class="label">Premio al jugador si la suma es 7 [Bs]</label>
+                                    <input type="number" id="cus7" class="input" inputmode="decimal" min="0" step="0.01" value="5" required />
+                                </div>
+                            </div>
+
+                            <div class="actions">
+                                <button type="button" id="simulateBtn" class="btn primary">SIMULAR</button>
+                                <button type="reset" id="clearBtn" class="btn ghost">LIMPIAR</button>
+                                <a href="../html/index.html" class="btn link" aria-label="Volver al inicio">← Volver</a>
+                            </div>
+                            <p id="form-help" class="hint">En cada simulación se juegan la cantidad indicada en “Juegos por simulación”. En cada juego, la casa cobra el “Ingreso por juego” y paga el “Premio al jugador” cuando la suma de los dos dados es 7.</p>
+                        </fieldset>
+                    </form>
+
+                    <div class="panel card" aria-live="polite">
+                        <div class="table-wrapper">
+                            <table class="table" aria-describedby="table-caption">
+                                <caption id="table-caption" class="sr-only">Resultados por simulación (una fila por corrida)</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Simulación (N°)</th>
+                                        <th scope="col">Ganancia neta de la casa [Bs]</th>
+                                        <th scope="col">Juegos ganados por la casa</th>
+                                        <th scope="col">% de juegos ganados (casa)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultsBody"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="kpis">
+                            <div class="chip">
+                                <div class="summary-label">Promedio de ganancia neta de la casa [Bs]</div>
+                                <div class="summary-value" id="avgGNC">—</div>
+                            </div>
+                            <div class="chip">
+                                <div class="summary-label">Promedio de juegos ganados por la casa</div>
+                                <div class="summary-value" id="avgNJGC">—</div>
+                            </div>
+                            <div class="chip">
+                                <div class="summary-label">Promedio del % de juegos ganados (casa)</div>
+                                <div class="summary-value" id="avgPJC">—</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos - Proyecto Educativo</p>
+                <a href="https://github.com/JoshNisth/Simulacion_Eventos" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    Ver en GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/simulaciones/dados.js"></script>
+</body>
+</html>

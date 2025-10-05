@@ -1,0 +1,13 @@
+<!-- Icono de bolsa de azúcar SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+    <path d="M32 10L24 18h16L32 10z" fill="currentColor" opacity="0.2"/>
+    <path d="M24 18v36c0 1.5 1.5 3 3 3h10c1.5 0 3-1.5 3-3V18" fill="currentColor" opacity="0.1"/>
+    <path d="M32 10L24 18h16L32 10z" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M24 18v36c0 1.5 1.5 3 3 3h10c1.5 0 3-1.5 3-3V18" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="29" cy="26" r="1.5" fill="currentColor"/>
+    <circle cx="35" cy="29" r="1.5" fill="currentColor"/>
+    <circle cx="32" cy="35" r="1.5" fill="currentColor"/>
+    <circle cx="29" cy="42" r="1.5" fill="currentColor"/>
+    <circle cx="35" cy="45" r="1.5" fill="currentColor"/>
+    <text x="32" y="52" text-anchor="middle" font-size="8" fill="currentColor" font-family="Arial, sans-serif">AZÚCAR</text>
+</svg>

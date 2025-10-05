@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llegada de Clientes - Simulación de Eventos Discretos</title>
+    <meta name="description" content="Simulación de llegada de clientes con distribuciones Poisson y Exponencial para análisis de colas y tiempos de servicio.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../html/index.html" class="nav-title" style="text-decoration: none; color: inherit;">SimEventos</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">🏪 Llegada de Clientes</h1>
+            <p class="hero-subtitle">Entradas Poisson/Exponencial a una tienda</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="simulations">
+            <div class="container">
+                <div class="coming-soon">
+                    <div class="coming-soon-content">
+                        <div class="coming-soon-icon" aria-hidden="true">
+                            <svg width="80" height="80" viewBox="0 0 80 80">
+                                <rect x="7" y="27" width="66" height="40" rx="3" fill="currentColor" opacity="0.1"/>
+                                <rect x="7" y="27" width="66" height="40" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <rect x="13" y="13" width="54" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M20 53v10M40 53v10M60 53v10" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="27" cy="20" r="2" fill="currentColor"/>
+                                <circle cx="33" cy="20" r="2" fill="currentColor"/>
+                                <circle cx="47" cy="20" r="2" fill="currentColor"/>
+                                <circle cx="53" cy="20" r="2" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h2 class="coming-soon-title">Próximamente</h2>
+                        <p class="coming-soon-description">
+                            Esta simulación está en desarrollo. Pronto podrás modelar la llegada de clientes a una tienda 
+                            utilizando distribuciones de Poisson y Exponencial para analizar patrones de tráfico.
+                        </p>
+                        <div class="coming-soon-features">
+                            <h3>Características planificadas:</h3>
+                            <ul>
+                                <li>Modelado con distribución de Poisson</li>
+                                <li>Tiempos entre llegadas exponenciales</li>
+                                <li>Visualización de la cola de clientes</li>
+                                <li>Métricas de tiempo de espera</li>
+                                <li>Análisis de utilización del sistema</li>
+                            </ul>
+                        </div>
+                        <a href="../html/index.html" class="back-button">← Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos - Proyecto Educativo</p>
+                <a href="https://github.com/JoshNisth/Simulacion_Eventos" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    Ver en GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <style>
+        .coming-soon {
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .coming-soon-content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid hsl(0 0% 100% / 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            backdrop-filter: blur(12px);
+        }
+
+        .coming-soon-icon {
+            color: var(--primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .coming-soon-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: var(--text);
+        }
+
+        .coming-soon-description {
+            font-size: var(--text-base);
+            color: var(--muted);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .coming-soon-features {
+            text-align: left;
+            margin-bottom: var(--space-lg);
+        }
+
+        .coming-soon-features h3 {
+            font-size: var(--text-lg);
+            color: var(--text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .coming-soon-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .coming-soon-features li {
+            padding: var(--space-xs) 0;
+            color: var(--muted);
+            position: relative;
+            padding-left: var(--space-md);
+        }
+
+        .coming-soon-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--ok);
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-sm) var(--space-lg);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: all var(--transition);
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px hsl(0 0% 0% / 0.3);
+        }
+
+        .back-button:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</body>
+</html>

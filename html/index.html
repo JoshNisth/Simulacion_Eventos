@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Eventos Discretos - Proyecto Educativo</title>
+    <meta name="description" content="Demos interactivas de simulación de eventos discretos: lanzamiento de dados, llegada de clientes, gallina ponedora y agencia de azúcar.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="../html/index.html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0f1216">
+    <meta name="robots" content="index,follow">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="./index.html" class="nav-title" aria-label="Inicio">SimEventos</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Simulación de Eventos Discretos</h1>
+            <p class="hero-subtitle">Explora modelos probabilísticos y procesos estocásticos a través de demos interactivas</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="simulations" id="simulaciones">
+            <div class="container">
+                <h2 class="section-title">Simulaciones Disponibles</h2>
+                <div class="cards-grid">
+                    <article class="card" data-tilt>
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="48" height="48" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="18" fill="currentColor" opacity="0.1"/>
+                                    <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M17 31l14-14" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="19" cy="19" r="2" fill="currentColor"/>
+                                    <circle cx="29" cy="29" r="2" fill="currentColor"/>
+                                    <path d="M20 30c0-2 1.8-3 4-3s4 1 4 3" fill="none" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Interés simple</h3>
+                            <p class="card-description">Crecimiento lineal de capital con tasa fija</p>
+                            <a href="../simulaciones/interes-simple.html" class="card-button">Abrir</a>
+                        </div>
+                    </article>
+
+                    <article class="card" data-tilt>
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="48" height="48" viewBox="0 0 48 48">
+                                    <rect x="6" y="6" width="36" height="36" rx="6" fill="currentColor" opacity="0.1"/>
+                                    <rect x="6" y="6" width="36" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="16" cy="16" r="2" fill="currentColor"/>
+                                    <circle cx="32" cy="16" r="2" fill="currentColor"/>
+                                    <circle cx="16" cy="24" r="2" fill="currentColor"/>
+                                    <circle cx="24" cy="24" r="2" fill="currentColor"/>
+                                    <circle cx="32" cy="24" r="2" fill="currentColor"/>
+                                    <circle cx="16" cy="32" r="2" fill="currentColor"/>
+                                    <circle cx="32" cy="32" r="2" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Lanzamiento de Dados</h3>
+                            <p class="card-description">Experimentos aleatorios y distribución de sumas</p>
+                            <a href="../simulaciones/dados.html" class="card-button">Abrir</a>
+                        </div>
+                    </article>
+
+                    <article class="card" data-tilt>
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="48" height="48" viewBox="0 0 48 48">
+                                    <rect x="4" y="16" width="40" height="24" rx="2" fill="currentColor" opacity="0.1"/>
+                                    <rect x="4" y="16" width="40" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="8" y="8" width="32" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 32v6M24 32v6M36 32v6" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="16" cy="12" r="1" fill="currentColor"/>
+                                    <circle cx="20" cy="12" r="1" fill="currentColor"/>
+                                    <circle cx="28" cy="12" r="1" fill="currentColor"/>
+                                    <circle cx="32" cy="12" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Llegada de Clientes</h3>
+                            <p class="card-description">Entradas Poisson/Exponencial a una tienda</p>
+                            <a href="../simulaciones/llegada-clientes.html" class="card-button">Abrir</a>
+                        </div>
+                    </article>
+
+                    <article class="card" data-tilt>
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="48" height="48" viewBox="0 0 48 48">
+                                    <ellipse cx="24" cy="32" rx="14" ry="8" fill="currentColor" opacity="0.1"/>
+                                    <path d="M10 32c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="24" cy="18" r="6" fill="currentColor" opacity="0.2"/>
+                                    <circle cx="24" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M18 14c0-3 2.7-5 6-5s6 2 6 5" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="20" cy="17" r="1" fill="currentColor"/>
+                                    <path d="M22 20l4-2" stroke="currentColor" stroke-width="1"/>
+                                    <ellipse cx="16" cy="36" rx="3" ry="2" fill="currentColor" opacity="0.3"/>
+                                    <ellipse cx="24" cy="38" rx="2.5" ry="1.5" fill="currentColor" opacity="0.3"/>
+                                    <ellipse cx="32" cy="35" rx="3" ry="2" fill="currentColor" opacity="0.3"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Gallina Ponedora</h3>
+                            <p class="card-description">Proceso de producción por lotes y colas</p>
+                            <a href="../simulaciones/gallina.html" class="card-button">Abrir</a>
+                        </div>
+                    </article>
+
+                    <article class="card" data-tilt>
+                        <div class="card-content">
+                            <div class="card-icon" aria-hidden="true">
+                                <svg width="48" height="48" viewBox="0 0 48 48">
+                                    <path d="M24 8L18 14h12L24 8z" fill="currentColor" opacity="0.2"/>
+                                    <path d="M18 14v24c0 1 1 2 2 2h8c1 0 2-1 2-2V14" fill="currentColor" opacity="0.1"/>
+                                    <path d="M24 8L18 14h12L24 8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M18 14v24c0 1 1 2 2 2h8c1 0 2-1 2-2V14" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="22" cy="20" r="1" fill="currentColor"/>
+                                    <circle cx="26" cy="22" r="1" fill="currentColor"/>
+                                    <circle cx="24" cy="26" r="1" fill="currentColor"/>
+                                    <circle cx="22" cy="30" r="1" fill="currentColor"/>
+                                    <circle cx="26" cy="32" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Agencia de Azúcar</h3>
+                            <p class="card-description">Inventario y demanda aleatoria</p>
+                            <a href="../simulaciones/agencia-azucar.html" class="card-button">Abrir</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="acerca">
+            <div class="container">
+                <h2 class="section-title">Acerca del Proyecto</h2>
+                <div class="about-content">
+                    <p>Este proyecto presenta una colección de simulaciones interactivas diseñadas para el aprendizaje de conceptos fundamentales en la simulación de eventos discretos. Cada demo implementa modelos probabilísticos específicos que permiten explorar diferentes aspectos de los procesos estocásticos.</p>
+                    <p>Las simulaciones están desarrolladas con fines educativos y proporcionan visualizaciones en tiempo real de los comportamientos aleatorios, distribuciones de probabilidad y métricas de rendimiento características de cada sistema modelado.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos - Proyecto Educativo</p>
+                <a href="https://github.com/JoshNisth/Simulacion_Eventos" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    Ver en GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

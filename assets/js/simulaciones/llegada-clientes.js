@@ -1,7 +1,3 @@
-// Simulación Llegada de Clientes Tienda
-// Distribución uniforme discreta de llegadas por hora: U{minClientes..maxClientes}
-// Distribución discreta de artículos comprados por cliente (0..3) con probabilidades ajustables.
-
 (function(){
   const $ = sel => document.querySelector(sel);
   const $$ = sel => Array.from(document.querySelectorAll(sel));

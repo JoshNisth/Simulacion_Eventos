@@ -57,3 +57,32 @@
 .hero{margin:0 !important;padding:14px 0 10px !important;}
 .hero .hero-title{margin:0 0 4px 0 !important;}
 .hero .hero-subtitle{margin:0 auto !important;font-size:clamp(.9rem,1.2vw,1.05rem);color:#8fa5b9;max-width:840px;text-align:center;}
+
+/* ================== RESPONSIVE (Mobile First Adjustments) ================== */
+@media (max-width: 900px){
+	.g-grid{ grid-template-columns:1fr; }
+	.prob-duo{ grid-template-columns:1fr; }
+	.prob-grid.huevos.compact{ grid-template-columns:repeat(3, minmax(70px,1fr)); }
+	.prob-grid.pollitos.compact{ grid-template-columns:repeat(2, minmax(70px,1fr)); }
+	.g-card{ padding:20px 20px 24px; }
+	.kpis-gallina{ grid-template-columns:repeat(2, minmax(130px,1fr)); }
+}
+@media (max-width: 560px){
+	.form-grid{ grid-template-columns:1fr; }
+	.prob-grid.huevos.compact{ grid-template-columns:repeat(3, 1fr); }
+	.prob-grid.pollitos.compact{ grid-template-columns:repeat(2, 1fr); }
+	.prob-grid.compact .prob-item .input{ height:28px; font-size:.72rem; }
+	.prob-grid.compact .prob-item{ padding:4px 5px 6px; }
+	.prob-grid.compact .prob-total-row{ font-size:.55rem; }
+	.kpis-gallina{ grid-template-columns:1fr 1fr; gap:8px; }
+	.chip{ padding:12px 12px; }
+	.k-label{ font-size:.55rem; }
+	.k-value{ font-size:.95rem; }
+}
+@media (max-width: 420px){
+	.kpis-gallina{ grid-template-columns:1fr; }
+	.g-wrapper{ padding:0 18px 40px; }
+	.chip{ padding:10px 10px; }
+	.table th,.table td{ padding:8px 8px; font-size:.65rem; }
+}
+.table-wrapper{ -webkit-overflow-scrolling: touch; }

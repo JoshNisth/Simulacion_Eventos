@@ -6,13 +6,14 @@
     <title>Simulación de Eventos Discretos - Proyecto Educativo</title>
     <meta name="description" content="Demos interactivas de simulación de eventos discretos: lanzamiento de dados, llegada de clientes, gallina ponedora y agencia de azúcar.">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
     <link rel="canonical" href="../html/index.html">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#0f1216">
     <meta name="robots" content="index,follow">
 </head>
-<body>
+<body class="home">
     <nav class="navbar" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
             <div class="nav-brand">
@@ -21,17 +22,10 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Simulación de Eventos Discretos</h1>
-            <p class="hero-subtitle">Explora modelos probabilísticos y procesos estocásticos a través de demos interactivas</p>
-        </div>
-    </header>
-
     <main>
         <section class="simulations" id="simulaciones">
             <div class="container">
-                <h2 class="section-title">Simulaciones Disponibles</h2>
+                <h2 class="section-title">Menú de opciones a simular</h2>
                 <div class="cards-grid">
                     <article class="card" data-tilt>
                         <div class="card-content">
@@ -86,7 +80,7 @@
                                     <circle cx="32" cy="12" r="1" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="card-title">Llegada de Clientes</h3>
+                            <h3 class="card-title">Llegada de Clientes en una tienda</h3>
                             <p class="card-description">Entradas Poisson/Exponencial a una tienda</p>
                             <a href="../simulaciones/llegada-clientes.html" class="card-button">Abrir</a>
                         </div>
@@ -138,21 +132,12 @@
             </div>
         </section>
 
-        <section class="about" id="acerca">
-            <div class="container">
-                <h2 class="section-title">Acerca del Proyecto</h2>
-                <div class="about-content">
-                    <p>Este proyecto presenta una colección de simulaciones interactivas diseñadas para el aprendizaje de conceptos fundamentales en la simulación de eventos discretos. Cada demo implementa modelos probabilísticos específicos que permiten explorar diferentes aspectos de los procesos estocásticos.</p>
-                    <p>Las simulaciones están desarrolladas con fines educativos y proporcionan visualizaciones en tiempo real de los comportamientos aleatorios, distribuciones de probabilidad y métricas de rendimiento características de cada sistema modelado.</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos - Proyecto Educativo</p>
+                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos</p>
                 <a href="https://github.com/JoshNisth/Simulacion_Eventos" target="_blank" rel="noopener noreferrer" class="footer-link">
                     Ver en GitHub
                 </a>

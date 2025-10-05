@@ -1,0 +1,44 @@
+/* Overrides específicos de la página de inicio para reducir espacios verticales */
+body.home .hero{ padding:40px 0 24px !important; }
+body.home .hero-title{ margin:0 !important; font-size:clamp(2rem,3.2vw,3rem); }
+body.home .simulations{ padding:40px 0 48px !important; }
+body.home .section-title{ margin:0 0 32px !important; font-size:clamp(1.6rem,2.5vw,2.2rem); }
+body.home .cards-grid{ margin-top:8px !important; gap:32px !important; }
+body.home .about{ padding:56px 0 64px !important; }
+body.home .about .section-title{ margin:0 0 24px !important; }
+
+/* Compactar navbar */
+body.home .nav-container{ padding:12px 32px !important; }
+
+/* Ajustar contenedor global para reducir relleno lateral en pantallas medianas */
+@media (min-width:760px){
+  body.home .container{ padding:0 40px !important; }
+}
+@media (min-width:1100px){
+  body.home .container{ padding:0 48px !important; }
+}
+
+/* Ajustes finos móviles */
+@media (max-width:640px){
+  body.home .hero{ padding:32px 0 18px !important; }
+  body.home .simulations{ padding:32px 0 40px !important; }
+  body.home .cards-grid{ gap:24px !important; }
+  body.home .about{ padding:48px 0 56px !important; }
+  body.home .nav-container{ padding:10px 20px !important; }
+}
+
+/* Opcional: reducir sombra y densidad de cards en home para sensación más compacta */
+body.home .card{ padding:32px 24px !important; }
+body.home .card-title{ margin-bottom:4px !important; }
+body.home .card-description{ margin-top:0 !important; }
+
+/* Centrar última tarjeta si queda sola (número impar de tarjetas) en grids de 2 columnas */
+@media (min-width:768px){
+  body.home .cards-grid{ --_gap: var(--space-lg); }
+  body.home .cards-grid > .card:last-child:nth-child(odd){
+    grid-column:1 / -1; /* ocupar fila completa para poder centrar */
+    justify-self:center;
+    width: calc((100% - var(--_gap)) / 2); /* exactamente el ancho de una columna */
+    max-width:none; /* asegurar que no limite distinto */
+  }
+}

@@ -17,6 +17,14 @@
 .prob-grid{display:grid;gap:10px;}
 .prob-grid.huevos{grid-template-columns:repeat(3,120px);} 
 .prob-grid.pollitos{grid-template-columns:repeat(2,120px);} 
+.prob-duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:4px;}
+@media (max-width:900px){.prob-duo{grid-template-columns:1fr;}}
+.prob-grid.compact{grid-template-columns:repeat(auto-fit,minmax(84px,1fr));}
+.prob-grid.huevos.compact{grid-template-columns:repeat(3,90px);} 
+.prob-grid.pollitos.compact{grid-template-columns:repeat(2,90px);} 
+.prob-grid.compact .prob-item{padding:4px 6px 8px;}
+.prob-grid.compact .prob-item .input{height:30px;font-size:.78rem;padding:4px 4px;}
+.prob-grid.compact .prob-total-row{font-size:.62rem;padding:4px 6px;}
 .prob-item{display:flex;flex-direction:column;gap:4px;background:#0e141c;border:1px solid #2a3442;padding:6px 8px 10px;border-radius:10px;}
 .prob-label{font-size:.7rem;font-weight:600;letter-spacing:.5px;color:#93a6bb;text-transform:uppercase;}
 .prob-item .input{max-width:100%;height:34px;font-size:.85rem;padding:6px 6px;}

@@ -1,0 +1,1 @@
+// Archivo legacy. Lógica global ahora en /docs/js/main.js

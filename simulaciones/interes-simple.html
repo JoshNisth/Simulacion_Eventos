@@ -6,6 +6,7 @@
     <title>Interés simple - Simulación de Eventos Discretos</title>
     <meta name="description" content="Simulación educativa de interés simple: crecimiento lineal del capital con tasa fija.">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/interes.css">
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="Navegación principal">
@@ -18,42 +19,73 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">📈 Interés simple</h1>
-            <p class="hero-subtitle">Crecimiento lineal de capital con tasa fija</p>
+            <h1 class="hero-title">📈 Interés Simple</h1>
+            <p class="hero-subtitle">Interés simple: cada período añade el mismo importe C·i al capital inicial (crecimiento lineal). Fórmula: M = C + C·i·n, donde C = capital inicial, i = tasa (decimal) y n = períodos.</p>
         </div>
     </header>
 
     <main>
-        <section class="simulations">
-            <div class="container">
-                <div class="coming-soon">
-                    <div class="coming-soon-content">
-                        <div class="coming-soon-icon" aria-hidden="true">
-                            <svg width="80" height="80" viewBox="0 0 80 80">
-                                <circle cx="40" cy="40" r="30" fill="currentColor" opacity="0.1"/>
-                                <circle cx="40" cy="40" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M26 50l20-20" stroke="currentColor" stroke-width="3"/>
-                                <circle cx="30" cy="30" r="3" fill="currentColor"/>
-                                <circle cx="50" cy="50" r="3" fill="currentColor"/>
-                                <path d="M32 48c0-3 2.5-4.5 6-4.5s6 1.5 6 4.5" fill="none" stroke="currentColor" stroke-width="2"/>
-                            </svg>
+        <section class="simulations" aria-labelledby="int-simple-title">
+            <div class="container" style="max-width:1400px;">
+                <h2 id="int-simple-title" class="sr-only">Parámetros y resultados de interés</h2>
+                <div class="is-grid">
+                    <!-- Panel parámetros -->
+                    <form id="formInteres" class="panel card is-form" novalidate aria-describedby="ayuda-int">
+                        <fieldset class="fieldset">
+                            <legend class="legend">Parámetros</legend>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="capital" class="label">Capital inicial</label>
+                                    <input type="number" id="capital" class="input" value="10000" min="0" step="0.01" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="tasa" class="label">Tasa (%)</label>
+                                    <input type="number" id="tasa" class="input" value="3.5" min="0" step="0.0001" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="periodos" class="label">Períodos (años)</label>
+                                    <input type="number" id="periodos" class="input" value="5" min="1" step="1" required />
+                                </div>
+                                <!-- Modo removido: sólo interés simple -->
+                                <div class="form-field">
+                                    <label for="redondeo" class="label">Decimales</label>
+                                    <input type="number" id="redondeo" class="input" value="2" min="0" max="6" step="1" />
+                                </div>
+                                <!-- Tabla siempre visible -->
+                            </div>
+                            <div class="actions">
+                                <button type="button" id="btnCalcular" class="btn primary">CALCULAR</button>
+                                <button type="reset" id="btnLimpiar" class="btn ghost">LIMPIAR</button>
+                                <a href="../html/index.html" class="btn link">← Volver</a>
+                            </div>
+                        </fieldset>
+                        <fieldset class="fieldset" style="margin-top:18px;">
+                            <legend class="legend legend-sub">Resultado rápido</legend>
+                            <div class="kpis kpis-int">
+                                <div class="chip"><span class="summary-label">Capital final</span><span id="kCapitalFinal" class="summary-value">—</span></div>
+                                <div class="chip"><span class="summary-label">Interés total</span><span id="kInteresTotal" class="summary-value">—</span></div>
+                                <!-- Chip modo eliminado -->
+                            </div>
+                        </fieldset>
+                    </form>
+                    <!-- Panel resultados -->
+                    <div class="panel card is-results" aria-live="polite">
+                        <h3 class="results-title">Evolución por período</h3>
+                        <div class="table-wrapper" id="tablaWrap">
+                            <table class="table" id="tablaEvolucion" aria-describedby="captionInteres">
+                                <caption id="captionInteres" class="sr-only">Evolución del capital y el interés por período</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Período</th>
+                                        <th>Capital inicio</th>
+                                        <th>Interés del período</th>
+                                        <th>Capital final</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
-                        <h2 class="coming-soon-title">Próximamente</h2>
-                        <p class="coming-soon-description">
-                            Esta simulación está en desarrollo. Pronto podrás explorar el cálculo de interés simple, 
-                            parametrizar capital inicial, tasa y tiempo, y comparar resultados con tablas y gráficos.
-                        </p>
-                        <div class="coming-soon-features">
-                            <h3>Características planificadas:</h3>
-                            <ul>
-                                <li>Parámetros: capital, tasa (%), tiempo</li>
-                                <li>Cálculo de monto e interés generado</li>
-                                <li>Tabla de evolución por periodo</li>
-                                <li>Gráfico lineal del monto en el tiempo</li>
-                                <li>Comparativa con interés compuesto (opcional)</li>
-                            </ul>
-                        </div>
-                        <a href="../html/index.html" class="back-button">← Volver al inicio</a>
+                        <p class="muted" id="notaModo" style="margin-top:12px;">Interés simple: el interés de cada período es constante (C·i).</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +95,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos - Proyecto Educativo</p>
+                <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos</p>
                 <a href="https://github.com/JoshNisth/Simulacion_Eventos" target="_blank" rel="noopener noreferrer" class="footer-link">
                     Ver en GitHub
                 </a>
@@ -71,21 +103,68 @@
         </div>
     </footer>
 
-    <script src="../assets/js/main.js"></script>
-    <style>
-        .coming-soon { padding: var(--space-xl) 0; text-align: center; }
-        .coming-soon-content { max-width: 600px; margin: 0 auto; background: var(--panel); border: 1px solid hsl(0 0% 100% / 0.1); border-radius: var(--border-radius-lg); padding: var(--space-xl); backdrop-filter: blur(12px); }
-        .coming-soon-icon { color: var(--primary); margin-bottom: var(--space-lg); }
-        .coming-soon-title { font-size: var(--text-3xl); font-weight: 700; margin-bottom: var(--space-md); color: var(--text); }
-        .coming-soon-description { font-size: var(--text-base); color: var(--muted); margin-bottom: var(--space-lg); line-height: 1.6; }
-        .coming-soon-features { text-align: left; margin-bottom: var(--space-lg); }
-        .coming-soon-features h3 { font-size: var(--text-lg); color: var(--text); margin-bottom: var(--space-sm); }
-        .coming-soon-features ul { list-style: none; padding: 0; }
-        .coming-soon-features li { padding: var(--space-xs) 0; color: var(--muted); position: relative; padding-left: var(--space-md); }
-        .coming-soon-features li::before { content: '✓'; position: absolute; left: 0; color: var(--ok); font-weight: bold; }
-        .back-button { display: inline-flex; align-items: center; padding: var(--space-sm) var(--space-lg); background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white; text-decoration: none; border-radius: var(--border-radius); font-weight: 500; transition: all var(--transition); min-width: 44px; min-height: 44px; }
-        .back-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px hsl(0 0% 0% / 0.3); }
-        .back-button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-    </style>
+        <script src="../assets/js/main.js"></script>
+        <script>
+            (function(){
+                const $ = s=>document.querySelector(s);
+                const capitalEl = $('#capital');
+                const tasaEl = $('#tasa');
+                const periodosEl = $('#periodos');
+                // Modo eliminado
+                const redondeoEl = $('#redondeo');
+                // Tabla siempre visible
+                const btnCalcular = $('#btnCalcular');
+                const btnLimpiar = $('#btnLimpiar');
+                const kCapitalFinal = $('#kCapitalFinal');
+                const kInteresTotal = $('#kInteresTotal');
+                // kModo eliminado
+                const tablaWrap = $('#tablaWrap');
+                const tbody = $('#tablaEvolucion tbody');
+                const notaModo = $('#notaModo');
+
+                function fmt(n, dec){return Number(n).toLocaleString('es-VE',{minimumFractionDigits:dec,maximumFractionDigits:dec});}
+
+                function calcular(){
+                    let C0 = parseFloat(capitalEl.value)||0; if(C0<0) C0=0;
+                    let tasaInput = parseFloat(tasaEl.value)||0; if(tasaInput<0) tasaInput=0;
+                    let n = parseInt(periodosEl.value)||0; if(n<1) n=1;
+                    let dec = parseInt(redondeoEl.value)||2; if(dec<0) dec=0; if(dec>6) dec=6;
+                    // Sólo interés simple. Tasa ya es porcentaje.
+                    const i = tasaInput/100;
+                    tbody.innerHTML='';
+                    let capitalInicio = C0;
+                    let capitalFin = C0;
+                    let interesTotal = 0;
+
+                    tablaWrap.hidden=false;
+
+                    for(let periodo=1; periodo<=n; periodo++){
+                        const capInicioPeriodo = C0 + C0 * i * (periodo-1);
+                        const interesPeriodo = C0 * i;
+                        const capFinPeriodo = capInicioPeriodo + interesPeriodo;
+                        interesTotal += interesPeriodo;
+                        capitalFin = capFinPeriodo;
+                        const tr=document.createElement('tr');
+                        tr.innerHTML=`<td>${periodo}</td><td>${fmt(capInicioPeriodo,dec)}</td><td>${fmt(interesPeriodo,dec)}</td><td>${fmt(capFinPeriodo,dec)}</td>`;
+                        tbody.appendChild(tr);
+                    }
+                    capitalFin = C0 + C0 * i * n;
+                    interesTotal = capitalFin - C0;
+                    kCapitalFinal.textContent = `Bs ${fmt(capitalFin,dec)}`;
+                    kInteresTotal.textContent = `Bs ${fmt(interesTotal,dec)}`;
+                    notaModo.textContent = 'Interés simple: cada período genera C·i constante, acumulación lineal.';
+                }
+                function limpiar(){
+                    tbody.innerHTML='';
+                    kCapitalFinal.textContent='—';
+                    kInteresTotal.textContent='—';
+                    notaModo.textContent='Interés simple: el interés de cada período es constante (C·i).';
+                    tablaWrap.hidden=false;
+                }
+                btnCalcular.addEventListener('click', calcular);
+                btnLimpiar.addEventListener('click', limpiar);
+            })();
+        </script>
+            <!-- estilos específicos en assets/css/interes.css -->
 </body>
 </html>

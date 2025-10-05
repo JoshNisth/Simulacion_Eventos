@@ -107,3 +107,5 @@ main,.simulations{margin:0;padding:0}
 
 /* Smooth horizontal scroll for tables if overflow */
 .table-wrapper{ -webkit-overflow-scrolling: touch; }
+/* Formula note spacing */
+.formula-note{max-width:540px;font-size:.72rem;line-height:1.25;color:var(--muted);}

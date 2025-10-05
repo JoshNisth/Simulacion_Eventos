@@ -1,0 +1,200 @@
+/* ========= Llegada de Clientes – estilo simple tipo formulario clásico ========= */
+
+/* Espaciados del hero y título */
+.hero{margin:0;padding:10px 0 6px}
+.hero .hero-title{margin:0 0 4px;line-height:1.15}
+.hero .hero-subtitle{margin:0}
+main,.simulations{margin:0;padding:0}
+.section-title{margin:8px 0 16px}
+
+/* Layout */
+:root{--maxw:1060px;--gap:20px;--bg:#0f141a;--panel:#121821;--stroke:#2a3442;--muted:#9fb0c7;--text:#e9f1ff;--accent:#6aa7ff}
+.main{max-width:var(--maxw);margin:0 auto;padding:0 20px 28px}
+.grid{display:grid;grid-template-columns:1fr;gap:var(--gap);align-items:start}
+@media(min-width:980px){.grid{grid-template-columns:1fr 1fr}}
+
+/* Panel / tarjeta sobria */
+.card{
+  background:var(--panel);
+  border:1px solid var(--stroke);
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  min-width:0;
+}
+/* Quitar efectos decorativos anteriores */
+.card::after{content:none}
+
+/* Fieldset */
+.fieldset{border:0;margin:0;padding:0}
+.legend{font-weight:700;margin-bottom:10px}
+
+/* Formulario: columnas y campos */
+.form-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:4px}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}}
+.full-span{grid-column:1 / -1}
+.form-field{display:flex;flex-direction:column;gap:6px}
+
+.label{font-size:.9rem;font-weight:600;color:var(--muted)}
+.sub-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);display:block;margin-bottom:4px}
+
+/* Inputs: sin salto al escribir ni al focus */
+.input{
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid var(--stroke);     /* mismo grosor siempre */
+  background:#0e141c;
+  color:var(--text);
+  font-size:.95rem;
+  line-height:1.2;
+}
+.input:hover{border-color:#3a4a60}
+.input:focus-visible{
+  outline:2px solid var(--accent);     /* outline no empuja layout */
+  outline-offset:2px;
+  border-color:var(--stroke);
+}
+
+/* Min/Máx en línea */
+.inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.inline-fields > div{
+  border:1px solid var(--stroke);
+  border-radius:10px;
+  padding:6px 8px 10px;
+  background:#0e141c;
+}
+.inline-fields input{background:#0e141c;border:1px solid #223045}
+
+/* Ayudas y feedback */
+.hint{color:var(--muted);font-size:.78rem;line-height:1.35;margin-top:2px}
+.error{outline:2px solid #ff4d4f}
+
+/* Botones sobrios */
+.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{
+  padding:10px 16px;border-radius:10px;border:1px solid var(--stroke);
+  background:#16202b;color:var(--text);font-weight:700;font-size:.9rem;
+  cursor:pointer;text-decoration:none
+}
+.btn.primary{background:#345d8a;border-color:#345d8a}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.ghost{background:#141c25}
+.btn.link{background:transparent;border:none;color:var(--accent);padding-left:0}
+
+/* Tabla de probabilidades */
+.prob-table{width:100%;border:1px solid var(--stroke);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden;background:#0e141c}
+.prob-table th,.prob-table td{padding:8px 10px;border-bottom:1px solid #223045;text-align:center}
+.prob-table thead th{background:#14202c;font-weight:700}
+.prob-table tbody tr:nth-child(even){background:#0c131b}
+.prob-table input{width:100%;background:#0b1118;border:1px solid #223045;border-radius:8px;padding:6px 8px;font-size:.86rem;text-align:right}
+.prob-table tfoot td{background:#14202c;font-weight:700}
+.prob-total{font-variant-numeric:tabular-nums}
+
+/* Resultados – tabla */
+.table-wrapper{border:1px solid var(--stroke);border-radius:10px;background:#0e141c;max-height:60vh;overflow:auto}
+.table{width:100%;border-collapse:separate;border-spacing:0}
+.table th,.table td{padding:10px 12px;border-bottom:1px solid #223045;font-size:.9rem}
+.table th+th,.table td+td{border-left:1px solid #223045}
+.table thead th{background:#14202c;position:sticky;top:0;z-index:1}
+.table tbody tr:nth-child(even){background:#0c131b}
+.table td{text-align:right}
+.table td:first-child{text-align:center}
+
+/* KPIs */
+.kpis-clientes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.chip{background:#121821;border:1px solid var(--stroke);border-radius:10px;padding:14px}
+.summary-label{color:var(--muted);font-size:.78rem;letter-spacing:.4px;text-transform:uppercase}
+.summary-value{font-size:1.2rem;font-weight:800;margin-top:3px}
+/* Aumenta ancho del formulario y da respiro vertical */
+.grid{ grid-template-columns: 1.4fr 1fr !important; }
+
+/* El panel izquierdo ocupa bien el alto del contenido */
+.grid > .card:first-child{ min-height: 580px; }
+
+/* Inputs más altos y cómodos */
+.input{ padding:12px 14px !important; font-size:1rem; }
+
+/* Resultados: evita tarjetas minúsculas */
+.kpis, .kpis-clientes{ grid-template-columns: 1fr 1fr !important; }
+.kpis .chip, .kpis-clientes .chip{ min-height: 96px; }
+
+/* Tabla de resultados con espacio fijo arriba */
+.table-wrapper{ min-height: 180px; }
+/* Encabezado del panel de resultados más compacto */
+.grid > .card:last-child h3,
+.result-header{ margin: 0 0 8px !important; font-size: 1rem !important; }
+
+/* Celdas y números */
+.table th, .table td{ padding: 10px 12px !important; font-size: .95rem !important; }
+.summary-value{ font-size: 1.1rem !important; }
+/* ---------- Compactar inputs y columnas del formulario ---------- */
+
+/* 2 columnas con ancho controlado (no se estiran a todo el panel) */
+@media (min-width: 640px){
+  .form-grid{
+    grid-template-columns: repeat(2, minmax(260px, 360px)) !important;
+    justify-content: start;   /* alinea las columnas a la izquierda */
+    column-gap: 16px;
+  }
+}
+
+/* Inputs más pequeños y consistentes */
+.input{
+  padding: 8px 10px !important;
+  font-size: .92rem !important;
+  line-height: 1.1 !important;
+  max-width: 340px;           /* límite para que no queden “largos” */
+  height: 38px;               /* altura fija cómoda */
+}
+
+/* Grupo Min/Máx en línea, con casillas chicas */
+.inline-fields{
+  grid-template-columns: repeat(2, 160px) !important;
+  justify-content: start;
+  gap: 10px;
+}
+.inline-fields input{
+  max-width: 140px !important;
+  height: 36px !important;
+  padding: 6px 8px !important;
+  font-size: .9rem !important;
+}
+
+/* Tabla de probabilidades: celdas de entrada estrechas */
+.prob-table input{
+  max-width: 110px !important;
+  height: 34px !important;
+  padding: 6px 8px !important;
+  font-size: .88rem !important;
+  text-align: right;
+}
+
+/* Opcional: reduce un poco el padding del panel izquierdo */
+.grid > .card:first-child{ padding: 16px 18px !important; }
+/* --- Centrar subtítulo del hero y limitar el ancho de línea --- */
+.hero .hero-content{ text-align:center; }
+.hero .hero-subtitle{
+  max-width: 68ch;   /* evita líneas larguísimas */
+  margin: 6px auto 0;
+}
+
+/* --- MIN / MÁX compactos --- */
+.inline-fields{
+  grid-template-columns: repeat(2, 120px) !important; /* columnas chicas */
+  justify-content: start;
+  gap: 10px;
+  width: fit-content;   /* el contenedor no se estira */
+}
+
+.inline-fields > div{
+  width: 120px !important;         /* fuerza el ancho de cada caja */
+  padding: 6px 8px 10px; 
+}
+
+.inline-fields input{
+  width: 100% !important;          /* ocupa solo su caja, no más */
+  max-width: none !important;
+  height: 34px !important;
+  padding: 6px 8px !important;
+  font-size: .9rem !important;
+}

@@ -1,0 +1,60 @@
+/* Gallina Ponedora Simulation Styles */
+.g-wrapper{max-width:1200px;margin:0 auto;padding:0 28px 48px;}
+.g-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:start;}
+@media (max-width:1000px){.g-grid{grid-template-columns:1fr;}}
+
+.g-card{background:#111820cc;border:1px solid #283241;border-radius:18px;padding:26px 26px 30px;box-shadow:0 6px 28px -6px rgba(0,0,0,.5);position:relative;overflow:hidden;}
+.g-form{display:flex;flex-direction:column;gap:22px;}
+.legend{font-size:0.95rem;font-weight:600;margin-bottom:4px;color:#e5eef7;}
+.legend-sub{font-size:0.72rem;letter-spacing:.65px;text-transform:uppercase;color:#7f94ac;margin-bottom:6px;}
+.fieldset{border:none;margin:0;padding:0;}
+
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(260px,340px));justify-content:start;gap:14px;}
+.form-field{display:flex;flex-direction:column;gap:6px;}
+.label{font-size:.75rem;font-weight:600;letter-spacing:.4px;color:#8ea2b8;text-transform:uppercase;}
+.input{height:38px;padding:8px 10px;font-size:.92rem;max-width:320px;border:1px solid #2a3442;background:#0e141c;color:#e9f1ff;border-radius:10px;}
+.input:focus-visible{outline:2px solid #6aa7ff;outline-offset:2px;}
+.input::-webkit-outer-spin-button,.input::-webkit-inner-spin-button{margin:0;}
+
+.prob-group{display:flex;flex-direction:column;gap:10px;}
+.prob-grid{display:grid;gap:10px;}
+.prob-grid.huevos{grid-template-columns:repeat(3,120px);} 
+.prob-grid.pollitos{grid-template-columns:repeat(2,120px);} 
+.prob-item{display:flex;flex-direction:column;gap:4px;background:#0e141c;border:1px solid #2a3442;padding:6px 8px 10px;border-radius:10px;}
+.prob-label{font-size:.7rem;font-weight:600;letter-spacing:.5px;color:#93a6bb;text-transform:uppercase;}
+.prob-item .input{max-width:100%;height:34px;font-size:.85rem;padding:6px 6px;}
+.prob-total-row{grid-column:1 / -1;display:flex;justify-content:space-between;font-size:.7rem;font-weight:600;letter-spacing:.5px;padding:6px 8px;background:#15202b;border:1px solid #2a3442;border-radius:10px;color:#b7c6d4;}
+.prob-total{font-variant-numeric:tabular-nums;}
+
+.hint{font-size:.65rem;color:#6d8095;line-height:1.3;}
+.help{margin-top:-6px;}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+.btn{padding:11px 18px;border-radius:12px;border:1px solid #2a3850;background:#1b2534;color:#e9f1ff;cursor:pointer;font-size:.78rem;font-weight:600;letter-spacing:.5px;text-decoration:none;}
+.btn.primary{background:linear-gradient(90deg,#6aa7ff,#b07cff);border:none;color:#fff;}
+.btn.ghost{background:#1b2534;}
+.btn.link{background:transparent;border:none;color:#6aa7ff;padding-left:0;}
+.btn:focus-visible{outline:2px solid #6aa7ff;outline-offset:2px;}
+
+.results-title{font-size:.85rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#7a90a7;margin:0 0 10px;}
+.table-wrapper{border:2px solid #2a3850;border-radius:14px;overflow:auto;max-height:55vh;background:#0f1520;}
+.table{width:100%;border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums;}
+.table th,.table td{padding:10px 12px;border-bottom:1px solid #223045;font-size:.74rem;}
+.table thead th{position:sticky;top:0;background:#14202c;font-weight:600;z-index:2;text-align:center;}
+.table td{text-align:right;}
+.table td:first-child{text-align:center;}
+.table tbody tr:nth-child(even){background:#131d28;}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:18px;}
+.chip{background:#161f29;border:1px solid #2a3442;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:3px;}
+.k-label{font-size:.6rem;letter-spacing:.55px;color:#8ea2b8;text-transform:uppercase;font-weight:600;}
+.k-value{font-size:1.05rem;font-weight:700;color:#e9f1ff;}
+
+.error{outline:2px solid #ff4d4f;}
+.invalid-hint{color:#ff9090;}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+.hero{margin:0 !important;padding:14px 0 10px !important;}
+.hero .hero-title{margin:0 0 4px 0 !important;}
+.hero .hero-subtitle{margin:0 auto !important;font-size:clamp(.9rem,1.2vw,1.05rem);color:#8fa5b9;max-width:840px;text-align:center;}

@@ -6,6 +6,7 @@
     <title>Gallina Ponedora - Simulación de Eventos Discretos</title>
     <meta name="description" content="Simulación de proceso de producción de huevos por lotes, modelando colas y tiempos de producción.">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/gallina.css">
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="Navegación principal">
@@ -18,46 +19,114 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">🐔 Gallina Ponedora</h1>
-            <p class="hero-subtitle">Proceso de producción por lotes y colas</p>
+            <h1 class="hero-title">🐔 Gallina Ponedora de Huevos</h1>
+            <p class="hero-subtitle">Simula días de producción: huevos que se rompen, nacen pollitos y se venden huevos y pollos. Observa ingresos y pérdidas.</p>
         </div>
     </header>
 
     <main>
-        <section class="simulations">
-            <div class="container">
-                <div class="coming-soon">
-                    <div class="coming-soon-content">
-                        <div class="coming-soon-icon" aria-hidden="true">
-                            <svg width="80" height="80" viewBox="0 0 80 80">
-                                <ellipse cx="40" cy="53" rx="23" ry="13" fill="currentColor" opacity="0.1"/>
-                                <path d="M17 53c0-13 10-23 23-23s23 10 23 23" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="40" cy="30" r="10" fill="currentColor" opacity="0.2"/>
-                                <circle cx="40" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M30 23c0-5 4.5-8 10-8s10 3 10 8" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="33" cy="28" r="1.5" fill="currentColor"/>
-                                <path d="M36 33l7-3" stroke="currentColor" stroke-width="1.5"/>
-                                <ellipse cx="27" cy="60" rx="5" ry="3" fill="currentColor" opacity="0.3"/>
-                                <ellipse cx="40" cy="63" rx="4" ry="2.5" fill="currentColor" opacity="0.3"/>
-                                <ellipse cx="53" cy="58" rx="5" ry="3" fill="currentColor" opacity="0.3"/>
-                            </svg>
+        <section class="sim-gallina" aria-labelledby="gallina-title">
+            <div class="g-wrapper">
+                <h2 id="gallina-title" class="sr-only">Parámetros y resultados de la simulación de la gallina</h2>
+                <div class="g-grid">
+                    <!-- Columna izquierda: Parámetros -->
+                    <form id="formGallina" class="g-card g-form" novalidate aria-describedby="form-ayuda">
+                        <fieldset class="fieldset">
+                            <legend class="legend">Parámetros</legend>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="nsim" class="label">Número de simulaciones</label>
+                                    <input id="nsim" type="number" class="input" min="1" step="1" value="5" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="dias" class="label">Número de días</label>
+                                    <input id="dias" type="number" class="input" min="1" step="1" value="300" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="precioHuevo" class="label">Precio huevo [$]</label>
+                                    <input id="precioHuevo" type="number" class="input" min="0" step="0.01" value="2" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="precioPollo" class="label">Precio pollo [$]</label>
+                                    <input id="precioPollo" type="number" class="input" min="0" step="0.01" value="30" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="lambda" class="label">Llegadas por día (Poisson λ)</label>
+                                    <input id="lambda" type="number" class="input" min="0" step="0.01" value="2" required />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="fieldset prob-group" aria-labelledby="lbl-destino-huevo">
+                            <legend id="lbl-destino-huevo" class="legend legend-sub">Destino del huevo</legend>
+                            <div class="prob-grid huevos">
+                                <div class="prob-item">
+                                    <label for="pRoto" class="prob-label">Roto</label>
+                                    <input id="pRoto" type="number" step="0.01" min="0" max="1" value="0.2" class="input prob" data-group="huevo" />
+                                </div>
+                                <div class="prob-item">
+                                    <label for="pPollito" class="prob-label">Pollito</label>
+                                    <input id="pPollito" type="number" step="0.01" min="0" max="1" value="0.3" class="input prob" data-group="huevo" />
+                                </div>
+                                <div class="prob-item">
+                                    <label for="pHuevoFinal" class="prob-label">Huevo</label>
+                                    <input id="pHuevoFinal" type="number" step="0.01" min="0" max="1" value="0.5" class="input prob" data-group="huevo" />
+                                </div>
+                                <div class="prob-total-row"><span>Total</span><span id="totalHuevo" class="prob-total">1.00</span></div>
+                            </div>
+                            <p class="hint">Las probabilidades deben sumar 1.00</p>
+                            <p id="err-huevo" class="hint invalid-hint" hidden aria-live="polite"></p>
+                        </fieldset>
+                        <fieldset class="fieldset prob-group" aria-labelledby="lbl-destino-pollito">
+                            <legend id="lbl-destino-pollito" class="legend legend-sub">Destino del pollito</legend>
+                            <div class="prob-grid pollitos">
+                                <div class="prob-item">
+                                    <label for="pMuere" class="prob-label">Muere</label>
+                                    <input id="pMuere" type="number" step="0.01" min="0" max="1" value="0.2" class="input prob" data-group="pollito" />
+                                </div>
+                                <div class="prob-item">
+                                    <label for="pSobrevive" class="prob-label">Sobrevive</label>
+                                    <input id="pSobrevive" type="number" step="0.01" min="0" max="1" value="0.8" class="input prob" data-group="pollito" />
+                                </div>
+                                <div class="prob-total-row"><span>Total</span><span id="totalPollito" class="prob-total">1.00</span></div>
+                            </div>
+                            <p class="hint">Las probabilidades deben sumar 1.00</p>
+                            <p id="err-pollito" class="hint invalid-hint" hidden aria-live="polite"></p>
+                        </fieldset>
+                        <div class="actions">
+                            <button type="button" id="btnSimularGallina" class="btn primary">SIMULAR</button>
+                            <button type="reset" id="btnLimpiarGallina" class="btn ghost">LIMPIAR</button>
+                            <a href="../html/index.html" class="btn link">← Volver</a>
                         </div>
-                        <h2 class="coming-soon-title">Próximamente</h2>
-                        <p class="coming-soon-description">
-                            Esta simulación está en desarrollo. Pronto podrás modelar el proceso de producción de huevos 
-                            por una gallina, incluyendo análisis de lotes, tiempos de producción y gestión de inventarios.
-                        </p>
-                        <div class="coming-soon-features">
-                            <h3>Características planificadas:</h3>
-                            <ul>
-                                <li>Simulación de ciclos de producción</li>
-                                <li>Análisis de lotes de huevos</li>
-                                <li>Gestión de inventario automática</li>
-                                <li>Métricas de productividad</li>
-                                <li>Optimización de recolección</li>
-                            </ul>
+                        <p id="form-ayuda" class="hint help">Ajusta parámetros y probabilidades. Se valida que cada bloque sume 1.0 antes de simular.</p>
+                    </form>
+
+                    <!-- Columna derecha: Resultados -->
+                    <div class="g-card results" aria-live="polite">
+                        <h3 class="results-title">Resultados por simulación</h3>
+                        <div class="table-wrapper">
+                            <table class="table" aria-describedby="captionGallina">
+                                <caption id="captionGallina" class="sr-only">Resultados agregados por simulación</caption>
+                                <thead>
+                                    <tr>
+                                        <th>NSIM</th>
+                                        <th>Huevos totales</th>
+                                        <th>Huevos rotos</th>
+                                        <th>Pollitos nacidos</th>
+                                        <th>Pollitos muertos</th>
+                                        <th>Pollos vendidos</th>
+                                        <th>Huevos vendidos</th>
+                                        <th>Ingreso bruto [$]</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodyGallina"></tbody>
+                            </table>
                         </div>
-                        <a href="../html/index.html" class="back-button">← Volver al inicio</a>
+                        <div class="kpis">
+                            <div class="chip"><span class="k-label">Ingreso bruto total</span><span id="kIngresoTotal" class="k-value">—</span></div>
+                            <div class="chip"><span class="k-label">Ingreso bruto prom. por día</span><span id="kIngresoProm" class="k-value">—</span></div>
+                            <div class="chip"><span class="k-label">Huevos rotos (total)</span><span id="kHuevosRotos" class="k-value">—</span></div>
+                            <div class="chip"><span class="k-label">Pollitos muertos (total)</span><span id="kPollitosMuertos" class="k-value">—</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,95 +145,6 @@
     </footer>
 
     <script src="../assets/js/main.js"></script>
-    <style>
-        .coming-soon {
-            padding: var(--space-xl) 0;
-            text-align: center;
-        }
-
-        .coming-soon-content {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--panel);
-            border: 1px solid hsl(0 0% 100% / 0.1);
-            border-radius: var(--border-radius-lg);
-            padding: var(--space-xl);
-            backdrop-filter: blur(12px);
-        }
-
-        .coming-soon-icon {
-            color: var(--primary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .coming-soon-title {
-            font-size: var(--text-3xl);
-            font-weight: 700;
-            margin-bottom: var(--space-md);
-            color: var(--text);
-        }
-
-        .coming-soon-description {
-            font-size: var(--text-base);
-            color: var(--muted);
-            margin-bottom: var(--space-lg);
-            line-height: 1.6;
-        }
-
-        .coming-soon-features {
-            text-align: left;
-            margin-bottom: var(--space-lg);
-        }
-
-        .coming-soon-features h3 {
-            font-size: var(--text-lg);
-            color: var(--text);
-            margin-bottom: var(--space-sm);
-        }
-
-        .coming-soon-features ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .coming-soon-features li {
-            padding: var(--space-xs) 0;
-            color: var(--muted);
-            position: relative;
-            padding-left: var(--space-md);
-        }
-
-        .coming-soon-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--ok);
-            font-weight: bold;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            padding: var(--space-sm) var(--space-lg);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            transition: all var(--transition);
-            min-width: 44px;
-            min-height: 44px;
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px hsl(0 0% 0% / 0.3);
-        }
-
-        .back-button:focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-    </style>
+    <script src="../assets/js/simulaciones/gallina.js"></script>
 </body>
 </html>

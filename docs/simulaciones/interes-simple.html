@@ -1,1 +1,90 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Interés Simple</title><meta name="description" content="Simulación educativa de interés simple."/><link rel="stylesheet" href="../css/styles.css"/><link rel="stylesheet" href="../css/interes.css"/></head><body><nav class="navbar" role="navigation" aria-label="Navegación principal"><div class="nav-container"><div class="nav-brand"><a href="../index.html" class="nav-title">SimEventos</a></div></div></nav><header class="hero"><div class="hero-content"><h1 class="hero-title">📈 Interés Simple</h1><p class="hero-subtitle">Crecimiento lineal: M = C + C·i·n. Cada período aporta C·i constante.</p></div></header><main><section class="simulations" aria-labelledby="int-simple-title"><div class="container" style="max-width:1400px;"><h2 id="int-simple-title" class="sr-only">Parámetros y resultados</h2><div class="is-grid"><form id="formInteres" class="panel card is-form" novalidate><fieldset class="fieldset"><legend class="legend">Parámetros</legend><div class="form-grid"><div class="form-field"><label class="label" for="capital">Capital inicial</label><input type="number" id="capital" class="input" value="10000" min="0" step="0.01"/></div><div class="form-field"><label class="label" for="tasa">Tasa (%)</label><input type="number" id="tasa" class="input" value="3.5" min="0" step="0.0001"/></div><div class="form-field"><label class="label" for="periodos">Períodos (años)</label><input type="number" id="periodos" class="input" value="5" min="1"/></div><div class="form-field"><label class="label" for="redondeo">Decimales</label><input type="number" id="redondeo" class="input" value="2" min="0" max="6"/></div></div><div class="actions"><button type="button" id="btnCalcular" class="btn primary">CALCULAR</button><button type="reset" id="btnLimpiar" class="btn ghost">LIMPIAR</button><a href="../index.html" class="btn link">← Volver</a></div></fieldset><fieldset class="fieldset" style="margin-top:18px;"><legend class="legend legend-sub">Resultado rápido</legend><div class="kpis kpis-int"><div class="chip"><span class="summary-label">Capital final</span><span id="kCapitalFinal" class="summary-value">—</span></div><div class="chip"><span class="summary-label">Interés total</span><span id="kInteresTotal" class="summary-value">—</span></div></div></fieldset></form><div class="panel card is-results" aria-live="polite"><h3 class="results-title">Evolución por período</h3><div class="table-wrapper" id="tablaWrap"><table class="table" id="tablaEvolucion"><thead><tr><th>Período</th><th>Capital inicio</th><th>Interés período</th><th>Capital final</th></tr></thead><tbody></tbody></table></div><p class="muted" id="notaModo">Interés simple: el interés de cada período es constante (C·i).</p></div></div></div></section></main><footer class="footer"><div class="container"><div class="footer-content"><p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos</p><a class="footer-link" target="_blank" rel="noopener" href="https://github.com/JoshNisth/Simulacion_Eventos">Ver en GitHub</a></div></div></footer><script src="../js/main.js"></script><script src="../js/simulaciones/interes-simple.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Interés Simple</title>
+	<meta name="description" content="Simulación educativa de interés simple." />
+	<link rel="stylesheet" href="../css/styles.css" />
+	<link rel="stylesheet" href="../css/interes.css" />
+</head>
+<body>
+	<nav class="navbar" role="navigation" aria-label="Navegación principal">
+		<div class="nav-container">
+			<div class="nav-brand"><a href="../index.html" class="nav-title">SimEventos</a></div>
+		</div>
+	</nav>
+	<header class="hero">
+		<div class="hero-content">
+			<h1 class="hero-title">📈 Interés Simple</h1>
+			<p class="hero-subtitle">Crecimiento lineal: M = C + C·i·n. Cada período aporta C·i constante.</p>
+		</div>
+	</header>
+	<main>
+		<section class="simulations" aria-labelledby="int-simple-title">
+			<div class="container" style="max-width:1400px;">
+				<h2 id="int-simple-title" class="sr-only">Parámetros y resultados</h2>
+				<div class="is-grid">
+					<form id="formInteres" class="panel card is-form" novalidate>
+						<fieldset class="fieldset">
+							<legend class="legend">Parámetros</legend>
+							<div class="form-grid">
+								<div class="form-field">
+									<label class="label" for="capital">Capital inicial</label>
+									<input type="number" id="capital" class="input" value="10000" min="0" step="0.01" />
+								</div>
+								<div class="form-field">
+									<label class="label" for="tasa">Tasa (%)</label>
+									<input type="number" id="tasa" class="input" value="3.5" min="0" step="0.0001" />
+								</div>
+								<div class="form-field">
+									<label class="label" for="periodos">Períodos (años)</label>
+									<input type="number" id="periodos" class="input" value="5" min="1" />
+								</div>
+								<div class="form-field">
+									<label class="label" for="redondeo">Decimales</label>
+									<input type="number" id="redondeo" class="input" value="2" min="0" max="6" />
+								</div>
+							</div>
+							<div class="actions">
+								<button type="button" id="btnCalcular" class="btn primary">CALCULAR</button>
+								<button type="reset" id="btnLimpiar" class="btn ghost">LIMPIAR</button>
+								<a href="../index.html" class="btn link">← Volver</a>
+							</div>
+						</fieldset>
+						<fieldset class="fieldset" style="margin-top:18px;">
+							<legend class="legend legend-sub">Resultado rápido</legend>
+							<div class="kpis kpis-int">
+								<div class="chip"><span class="summary-label">Capital final</span><span id="kCapitalFinal" class="summary-value">—</span></div>
+								<div class="chip"><span class="summary-label">Interés total</span><span id="kInteresTotal" class="summary-value">—</span></div>
+							</div>
+						</fieldset>
+					</form>
+					<div class="panel card is-results" aria-live="polite">
+						<h3 class="results-title">Evolución por período</h3>
+						<div class="table-wrapper" id="tablaWrap">
+							<table class="table" id="tablaEvolucion">
+								<thead>
+									<tr><th>Período</th><th>Capital inicio</th><th>Interés período</th><th>Capital final</th></tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+						<p class="muted" id="notaModo">Interés simple: el interés de cada período es constante (C·i).</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos</p>
+				<a class="footer-link" target="_blank" rel="noopener" href="https://github.com/JoshNisth/Simulacion_Eventos">Ver en GitHub</a>
+			</div>
+		</div>
+	</footer>
+	<script src="../js/main.js"></script>
+	<script src="../js/simulaciones/interes-simple.js"></script>
+</body>
+</html>

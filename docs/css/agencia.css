@@ -1,0 +1,41 @@
+/* Estilos extraídos de la versión inline de agencia-azucar.html */
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;color:#e9f1ff;background:#0b1118;line-height:1.35;}
+h1{font-size:1.9rem;margin:0 0 6px;font-weight:650;letter-spacing:.5px;text-align:center;}
+h2{font-size:1.1rem;margin:0 0 14px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#9fb0c7;}
+p.subtitle{max-width:880px;margin:0 auto 26px;text-align:center;font-size:.95rem;color:#b9c7d8;}
+.grid{display:grid;gap:20px;grid-template-columns:1.4fr 1fr;align-items:start;margin-top:4px}
+.card{background:#121821;border:1px solid #2a3442;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.card h3{margin:0 0 14px;font-size:1.05rem;font-weight:600;letter-spacing:.5px;color:#b7c6d8;text-transform:uppercase;}
+form{margin:0;padding:0}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(260px,340px));justify-content:start;gap:14px}
+.form-grid label{display:flex;flex-direction:column;font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;color:#93a6bc;font-weight:600;gap:4px}
+.input{height:38px;padding:8px 10px;font-size:.92rem;max-width:320px;border:1px solid #2a3442;background:#0e141c;color:#e9f1ff;border-radius:8px;transition:border-color .15s,background .15s}
+.input:focus-visible{outline:2px solid #6aa7ff;outline-offset:2px}
+.inline-fields{display:grid;grid-template-columns:repeat(2,120px);gap:10px;justify-content:start}
+.inline-fields>div{width:120px;padding:6px 8px 10px;border:1px solid #2a3442;border-radius:10px;background:#0e141c;display:flex;flex-direction:column;gap:4px}
+.inline-fields label{font-size:.65rem;color:#8ea3b9;margin:0;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+button{cursor:pointer;font-weight:600;letter-spacing:.4px}
+.actions{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.btn{background:#1f63d8;border:1px solid #3478ec;color:#fff;padding:10px 20px;border-radius:8px;font-size:.82rem;text-transform:uppercase;box-shadow:0 3px 10px rgba(15,52,98,.4);}
+.btn:hover{background:#2b73ef}
+.btn.secondary{background:#1b2531;border-color:#2a3442;color:#c6d4e5;box-shadow:none}
+.btn.secondary:hover{background:#233141}
+.btn.outline{background:#121821;color:#c1d1e5;border:1px solid #2a3442}
+.btn.outline:hover{background:#18222e}
+.table-wrap{max-height:60vh;overflow:auto;border:1px solid #223045;border-radius:10px;background:#0f161f;margin-top:4px}
+table.table{width:100%;border-collapse:separate;border-spacing:0;font-size:.74rem;min-width:1250px}
+.table th,.table td{padding:10px 12px;border-bottom:1px solid #223045;vertical-align:middle}
+.table thead th{position:sticky;top:0;background:#14202c;z-index:2;text-align:center;font-weight:700;font-size:.67rem;letter-spacing:.6px;color:#8fb0cc;text-transform:uppercase}
+.table tbody tr:last-child td{border-bottom:none}
+.table td{text-align:right;font-variant-numeric:tabular-nums}
+.table td:first-child{text-align:center;font-weight:600;color:#d4e4f5}
+.muted{color:#88a0b6;font-size:.65rem;letter-spacing:.5px;margin-top:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.chip{background:#121821;border:1px solid #2a3442;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:3px;min-height:92px}
+.summary-label{color:#9fb0c7;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase}
+.summary-value{font-size:1.2rem;font-weight:800;margin-top:3px}
+.warn{color:#f7c356}
+.bad{color:#ff6f69}
+.good{color:#64d488}
+.footer-note{margin-top:18px;font-size:.6rem;letter-spacing:.4px;color:#5f7084;text-align:right}
+@media (max-width:1120px){.grid{grid-template-columns:1fr}.table-wrap{max-height:50vh}}

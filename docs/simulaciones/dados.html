@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lanzamiento de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/dados.css" />
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <div class="nav-brand"><a href="../index.html" class="nav-title">SimEventos</a></div>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">🎲 Lanzamiento de Dados</h1>
+      <p class="hero-subtitle">Se lanzan 2 dados; si la suma es 7 gana el jugador. La casa cobra 2 Bs por juego y paga 5 Bs si sale 7.</p>
+    </div>
+  </header>
+  <main>
+    <section class="simulations" aria-labelledby="section-title">
+      <div class="main">
+        <h2 id="section-title" class="section-title">Parámetros y resultados de la simulación</h2>
+        <div class="grid">
+          <form id="formDados" class="panel card" aria-describedby="form-help">
+            <fieldset class="fieldset">
+              <legend class="legend">Lanzamiento de Dados</legend>
+              <div class="form-grid">
+                <div class="form-field"><label class="label" for="numSim">Cantidad de simulaciones</label><input type="number" id="numSim" class="input" min="1" value="5" /></div>
+                <div class="form-field"><label class="label" for="nmj">Juegos por simulación</label><input type="number" id="nmj" class="input" min="1" value="10" /></div>
+                <div class="form-field"><label class="label" for="puj">Ingreso por juego [Bs]</label><input type="number" id="puj" class="input" min="0" step="0.01" value="2" /></div>
+                <div class="form-field"><label class="label" for="cus7">Premio si suma 7 [Bs]</label><input type="number" id="cus7" class="input" min="0" step="0.01" value="5" /></div>
+              </div>
+              <div class="actions">
+                <button type="button" id="simulateBtn" class="btn primary">SIMULAR</button>
+                <button type="reset" id="clearBtn" class="btn ghost">LIMPIAR</button>
+                <a href="../index.html" class="btn link">← Volver</a>
+              </div>
+              <p id="form-help" class="hint">Cada simulación reinicia contadores. Se registra ganancia neta de la casa.</p>
+            </fieldset>
+          </form>
+          <div class="panel card" aria-live="polite">
+            <div class="table-wrapper">
+              <table class="table"><thead><tr><th>NSIM</th><th>Ganancia neta [Bs]</th><th>Juegos gana casa</th><th>% gana casa</th></tr></thead><tbody id="resultsBody"></tbody></table>
+            </div>
+            <div class="kpis">
+              <div class="chip"><div class="summary-label">Promedio ganancia neta</div><div id="avgGNC" class="summary-value">—</div></div>
+              <div class="chip"><div class="summary-label">Promedio juegos ganados</div><div id="avgNJGC" class="summary-value">—</div></div>
+              <div class="chip"><div class="summary-label">Promedio % gana casa</div><div id="avgPJC" class="summary-value">—</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-content"><p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos</p><a class="footer-link" target="_blank" rel="noopener" href="https://github.com/JoshNisth/Simulacion_Eventos">Ver en GitHub</a></div></div></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/simulaciones/dados.js"></script>
+</body>
+</html>

@@ -1,162 +1,107 @@
+git clone https://github.com/JoshNisth/Simulacion_Eventos.git
 # Simulación de Eventos Discretos
 
-Un proyecto educativo que presenta simulaciones interactivas para el aprendizaje de conceptos fundamentales en la simulación de eventos discretos.
+Proyecto educativo con simulaciones interactivas para explorar procesos estocásticos, inventarios simples y modelos probabilísticos usando únicamente HTML, CSS y JavaScript (sin dependencias externas).
 
 ## 🎯 Objetivo
 
-Proporcionar demos visuales e interactivas que permiten explorar diferentes aspectos de los procesos estocásticos y modelado probabilístico a través de cuatro simulaciones principales:
+Ofrecer un laboratorio visual para entender distribuciones, generación de números aleatorios, conteos Poisson, políticas simples de inventario y crecimiento financiero básico.
 
-- **🎲 Lanzamiento de Dados**: Experimentos aleatorios y distribución de sumas
-- **🏪 Llegada de Clientes**: Entradas Poisson/Exponencial a una tienda  
-- **🐔 Gallina Ponedora**: Proceso de producción por lotes y colas
-- **🧂 Agencia de Azúcar**: Inventario y demanda aleatoria
+## 🚀 Simulaciones Incluidas
 
-## 🚀 Características
+| Simulación | Archivo | Conceptos Clave |
+|------------|---------|-----------------|
+| 🎲 Lanzamiento de Dados | `docs/simulaciones/dados.html` | Variables discretas, expectativa empírica |
+| 🏪 Llegada de Clientes | `docs/simulaciones/llegada-clientes.html` | Llegadas uniformes, distribución discreta de demanda |
+| 🐔 Gallina Ponedora | `docs/simulaciones/gallina.html` | Poisson diario + ramificación probabilística |
+| 🧂 Agencia de Azúcar | `docs/simulaciones/agencia-azucar.html` | Revisión periódica inventario, demanda exponencial, pérdidas |
+| � Interés Simple | `docs/simulaciones/interes-simple.html` | Crecimiento lineal (M = C + C·i·n) |
 
-### Tecnológicas
-- ✅ **100% Frontend**: HTML5, CSS3 y JavaScript vanilla
-- ✅ **GitHub Pages Ready**: Sin dependencias externas
-- ✅ **Responsive Design**: Mobile-first (360px → desktop)
-- ✅ **Accesible**: Semántica HTML5, ARIA, contraste AA
-- ✅ **Temas**: Dark/Light automático + toggle manual
-- ✅ **Optimizado**: Lighthouse ≥ 90 en todas las métricas
+## 🧱 Stack
+- ✅ 100% Frontend (GitHub Pages friendly)
+- ✅ Vanilla JS modular (un archivo por simulación)
+- ✅ Tema oscuro único optimizado (sin toggle ahora)
+- ✅ Accesibilidad: headings lógicos, focus visible, ARIA donde aporta
+- ✅ Sin build step: clonas y funciona
 
-### Diseño
-- 🎨 **Glassmorphism**: Efectos de cristal con blur y transparencias
-- ⚡ **Microinteracciones**: Hover effects con parallax sutil
-- 🎭 **Animaciones**: Entrada suave con `@keyframes` (respeta `prefers-reduced-motion`)
-- 🎨 **Tipografía Fluida**: Sistema de fuentes con `clamp()` para escalado responsivo
-- 🌈 **Paleta Moderna**: Variables CSS con soporte para temas
-
-## 📁 Estructura del Proyecto
+## 📁 Estructura (deploy desde `/docs`)
 
 ```
 /
-├── index.html                 # Página principal
-├── assets/
-│   ├── css/
-│   │   └── styles.css        # Estilos principales
-│   ├── js/
-│   │   └── main.js          # Lógica JavaScript
-│   └── img/
-│       ├── dados.svg        # Iconos SVG
-│       ├── tienda.svg
-│       ├── gallina.svg
-│       └── azucar.svg
-├── simulaciones/
-│   ├── dados.html           # Simulación de dados
-│   ├── llegada-clientes.html # Simulación de llegadas
-│   ├── gallina.html         # Simulación de gallina
-│   └── agencia-azucar.html  # Simulación de inventario
+├── docs/
+│   ├── index.html                  # Menú principal
+│   ├── css/                        # Estilos globales + específicos
+│   ├── js/                         # Lógica global
+│   │   └── simulaciones/           # Lógica por módulo
+│   └── simulaciones/               # Páginas de cada demo
 └── README.md
 ```
 
-## 🛠️ Instalación y Uso
+> Se consolidó la antigua estructura (`assets/`, `html/`, `simulaciones/`) dentro de `docs/` para simplificar GitHub Pages.
 
-### Opción 1: GitHub Pages (Recomendado)
-1. Fork este repositorio
-2. Ve a Settings → Pages
-3. Selecciona "Deploy from a branch" → `main` → `/ (root)`
-4. Tu sitio estará disponible en `https://tu-usuario.github.io/Simulacion_Eventos`
+## 🌐 Despliegue en GitHub Pages
+1. Fork del repositorio
+2. Settings → Pages → Source = "Deploy from a branch"
+3. Branch = `main`, carpeta = `/docs`
+4. Guardar. URL: `https://<tu-usuario>.github.io/Simulacion_Eventos/`
 
-### Opción 2: Local
+## ▶️ Uso Local
 ```bash
-# Clonar el repositorio
 git clone https://github.com/JoshNisth/Simulacion_Eventos.git
 cd Simulacion_Eventos
-
-# Servir localmente (cualquier servidor HTTP)
-# Opción Python
-python -m http.server 8000
-
-# Opción Node.js
-npx serve .
-
-# Abrir en http://localhost:8000
+python -m http.server 8000   # o npx serve ./docs
+# Abrir: http://localhost:8000/docs/
 ```
 
-## 🎨 Personalización
-
-### Temas y Colores
-Los colores se definen en variables CSS en `assets/css/styles.css`:
-
+## 🎨 Personalización Rápida
+Variables principales en `docs/css/styles.css`:
 ```css
 :root {
-    --bg: hsl(220 18% 8%);           /* Fondo principal */
-    --panel: hsl(228 16% 14% / 0.6); /* Paneles glass */
-    --text: hsl(0 0% 98%);           /* Texto principal */
-    --primary: hsl(200 100% 60%);    /* Color primario */
-    --accent: hsl(280 100% 70%);     /* Color acento */
+  --bg: hsl(220 18% 8%);
+  --panel: hsl(228 16% 14% / 0.6);
+  --text: hsl(0 0% 98%);
+  --primary: hsl(200 100% 60%);
+  --accent: hsl(280 100% 70%);
 }
 ```
 
-### Animaciones
-Para deshabilitar animaciones globalmente:
-```css
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-```
+## 🧪 Generación Aleatoria / Modelos
+- Poisson: método de Knuth
+- Exponencial: inversa ( -λ ln(1-u) )
+- Discreto: acumulación de probabilidades ordenadas
+- Uniforme entero: `min + floor(u*(max-min+1))`
 
-## 🧪 Estado de las Simulaciones
+## 📊 Métricas Clave por Simulación
+| Simulación | Métricas |
+|------------|----------|
+| Dados | Ganancia neta, % juegos ganados |
+| Clientes | Artículos totales, ganancia neta promedio |
+| Gallina | Huevos rotos, pollitos muertos, ingreso total y promedio por día |
+| Azúcar | Nivel servicio, inventario promedio, ganancia neta, capacidad suficiente |
+| Interés | Capital final, interés acumulado y tabla de evolución |
 
-| Simulación | Estado | Descripción |
-|------------|--------|-------------|
-| 🎲 Dados | 🚧 En desarrollo | Próximamente |
-| 🏪 Clientes | 🚧 En desarrollo | Próximamente |
-| 🐔 Gallina | 🚧 En desarrollo | Próximamente |
-| 🧂 Azúcar | 🚧 En desarrollo | Próximamente |
+## ♿ Accesibilidad
+- Tablas con `<caption>` (sr-only) y cabeceras sticky
+- Colores con buen contraste en fondo oscuro
+- Indicadores de foco consistentes
 
-## 📊 Performance
+## 🤝 Contribuciones
+1. Crea rama: `git checkout -b feature/nueva-simulacion`
+2. Agrega tu HTML a `docs/simulaciones/` + JS en `docs/js/simulaciones/`
+3. Incluye CSS modular si hace falta
+4. Actualiza este README si agregas una simulación
+5. Pull Request 👍
 
-El sitio está optimizado para obtener puntuaciones altas en Lighthouse:
-
-- **Performance**: ≥ 90
-- **Accessibility**: ≥ 90  
-- **Best Practices**: ≥ 90
-- **SEO**: ≥ 90
-
-### Optimizaciones aplicadas:
-- ⚡ CSS y JS minificados en producción
-- 🖼️ SVG inline para iconos (sin requests HTTP)
-- 📱 Responsive images con `srcset`
-- 🎭 Animaciones GPU-accelerated
-- 🚀 Preload de recursos críticos
-
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-simulacion`)
-3. Commit tus cambios (`git commit -m 'Añadir nueva simulación'`)
-4. Push a la rama (`git push origin feature/nueva-simulacion`)
-5. Abre un Pull Request
-
-### Lineamientos para contribuir:
-- Mantener compatibilidad con GitHub Pages
-- Seguir las convenciones de accesibilidad
-- Probar en dispositivos móviles
-- Respetar la paleta de colores existente
-- Documentar nuevas características
+## 🔍 Próximas Ideas (Roadmap ligero)
+- Exportar resultados a CSV
+- Gráficas simples (canvas) para series de inventario / Poisson
+- Parámetros guardados en `localStorage`
 
 ## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+MIT — úsalo libremente citando la fuente si te es útil.
 
 ## 👨‍💻 Autor
-
-**JoshNisth**
-- GitHub: [@JoshNisth](https://github.com/JoshNisth)
-- Proyecto: [Simulacion_Eventos](https://github.com/JoshNisth/Simulacion_Eventos)
-
-## 🙏 Agradecimientos
-
-- Iconos creados con SVG personalizado
-- Inspiración de diseño: Glassmorphism y Material Design
-- Paleta de colores: Basada en principios de accesibilidad
+**JoshNisth** – [GitHub](https://github.com/JoshNisth)
 
 ---
-
-⭐ **¡No olvides dar una estrella al proyecto si te resultó útil!**
+⭐ Si te ayudó, considera dejar una estrella.

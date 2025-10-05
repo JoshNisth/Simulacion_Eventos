@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulación de Eventos Discretos - Proyecto Educativo</title>
+  <meta name="description" content="Demos interactivas de simulación de eventos discretos: dados, llegadas, gallina, inventario e interés simple." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0f1216" />
+</head>
+<body class="home">
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-title" aria-label="Inicio">SimEventos</a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section class="simulations" id="simulaciones">
+      <div class="container">
+        <h2 class="section-title">Menú de opciones a simular</h2>
+        <div class="cards-grid">
+          <article class="card" data-tilt>
+            <div class="card-content">
+              <div class="card-icon" aria-hidden="true">📈</div>
+              <h3 class="card-title">Interés simple</h3>
+              <p class="card-description">Crecimiento lineal de capital con tasa fija</p>
+              <a class="card-button" href="simulaciones/interes-simple.html">Abrir</a>
+            </div>
+          </article>
+          <article class="card" data-tilt>
+            <div class="card-content">
+              <div class="card-icon" aria-hidden="true">🎲</div>
+              <h3 class="card-title">Lanzamiento de Dados</h3>
+              <p class="card-description">Distribución de resultados y ganancia</p>
+              <a class="card-button" href="simulaciones/dados.html">Abrir</a>
+            </div>
+          </article>
+          <article class="card" data-tilt>
+            <div class="card-content">
+              <div class="card-icon" aria-hidden="true">🏪</div>
+              <h3 class="card-title">Llegada de Clientes</h3>
+              <p class="card-description">Llegadas y compras discretas</p>
+              <a class="card-button" href="simulaciones/llegada-clientes.html">Abrir</a>
+            </div>
+          </article>
+          <article class="card" data-tilt>
+            <div class="card-content">
+              <div class="card-icon" aria-hidden="true">🐔</div>
+              <h3 class="card-title">Gallina Ponedora</h3>
+              <p class="card-description">Producción y destinos aleatorios</p>
+              <a class="card-button" href="simulaciones/gallina.html">Abrir</a>
+            </div>
+          </article>
+          <article class="card" data-tilt>
+            <div class="card-content">
+              <div class="card-icon" aria-hidden="true">📦</div>
+              <h3 class="card-title">Agencia de Azúcar</h3>
+              <p class="card-description">Inventario periódico y demanda</p>
+              <a class="card-button" href="simulaciones/agencia-azucar.html">Abrir</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; <span id="currentYear"></span> Simulación de Eventos Discretos</p>
+        <a href="https://github.com/JoshNisth/Simulacion_Eventos" target="_blank" rel="noopener noreferrer" class="footer-link">Ver en GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

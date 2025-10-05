@@ -30,7 +30,7 @@ table.table{width:100%;border-collapse:separate;border-spacing:0;font-size:.74re
 .table td{text-align:right;font-variant-numeric:tabular-nums}
 .table td:first-child{text-align:center;font-weight:600;color:#d4e4f5}
 .muted{color:#88a0b6;font-size:.65rem;letter-spacing:.5px;margin-top:2px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-top:14px}
 .chip{background:#121821;border:1px solid #2a3442;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:3px;min-height:92px}
 .summary-label{color:#9fb0c7;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase}
 .summary-value{font-size:1.2rem;font-weight:800;margin-top:3px}
@@ -45,7 +45,7 @@ table.table{width:100%;border-collapse:separate;border-spacing:0;font-size:.74re
 	.form-grid{ grid-template-columns:repeat(2,minmax(160px,1fr)); }
 	.table-wrap{ max-width:100%; overflow:auto; }
 	table.table{ min-width:1100px; }
-	.kpis{ grid-template-columns:repeat(2, minmax(150px,1fr)); }
+	.kpis{ grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); }
 	.chip{ min-height:80px; padding:12px; }
 	.summary-value{ font-size:1.05rem; }
 }
@@ -54,7 +54,7 @@ table.table{width:100%;border-collapse:separate;border-spacing:0;font-size:.74re
 	.input{ height:34px; font-size:.8rem; }
 	.inline-fields{ grid-template-columns:repeat(2, 1fr); }
 	.inline-fields>div{ width:100%; }
-	.kpis{ grid-template-columns:1fr 1fr; gap:10px; }
+	.kpis{ grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
 	h1{ font-size:1.6rem; }
 	p.subtitle{ font-size:.85rem; margin-bottom:18px; }
 }

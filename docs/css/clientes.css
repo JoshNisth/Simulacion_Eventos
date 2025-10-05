@@ -56,8 +56,8 @@ main,.simulations{margin:0;padding:0}
 .grid{ grid-template-columns: 1.4fr 1fr !important; }
 .grid > .card:first-child{ min-height: 580px; }
 .input{ padding:12px 14px !important; font-size:1rem; }
-.kpis, .kpis-clientes{ grid-template-columns: 1fr 1fr !important; }
-.kpis .chip, .kpis-clientes .chip{ min-height: 96px; }
+.kpis, .kpis-clientes{ grid-template-columns: repeat(auto-fill,minmax(160px,1fr)) !important; }
+.kpis .chip, .kpis-clientes .chip{ min-height: 86px; }
 .table-wrapper{ min-height: 180px; }
 .grid > .card:last-child h3,
 .result-header{ margin: 0 0 8px !important; font-size: 1rem !important; }
@@ -83,7 +83,7 @@ main,.simulations{margin:0;padding:0}
   .grid > .card:first-child{ min-height: unset; }
   .form-grid{ grid-template-columns: 1fr 1fr !important; }
   .prob-table input{ max-width: 90px !important; }
-  .kpis, .kpis-clientes{ grid-template-columns: repeat(2, minmax(140px,1fr)) !important; gap: 10px !important; }
+  .kpis, .kpis-clientes{ grid-template-columns: repeat(auto-fill,minmax(140px,1fr)) !important; gap: 10px !important; }
   .chip{ min-height: auto; padding: 12px; }
   .summary-value{ font-size: 1rem !important; }
   .table-wrapper{ max-height: 50vh; }
@@ -92,7 +92,7 @@ main,.simulations{margin:0;padding:0}
   .form-grid{ grid-template-columns: 1fr !important; }
   .inline-fields{ grid-template-columns: repeat(2, 1fr) !important; }
   .inline-fields > div{ width: 100% !important; }
-  .kpis, .kpis-clientes{ grid-template-columns: 1fr 1fr !important; }
+  .kpis, .kpis-clientes{ grid-template-columns: repeat(auto-fill,minmax(150px,1fr)) !important; }
   .prob-table{ font-size: .8rem; }
   .prob-table input{ max-width: 72px !important; padding:4px 6px !important; height:30px !important; font-size:.75rem !important; }
 }

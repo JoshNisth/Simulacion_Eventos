@@ -85,6 +85,11 @@ body { font-family: var(--font-base); font-size: var(--text-base); line-height: 
 .navbar { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); background-color: var(--panel); border-bottom: 1px solid hsl(0 0% 100% / 0.1); transition: all var(--transition); }
 .nav-container { max-width: var(--container-max); margin: 0 auto; padding: var(--space-sm) var(--space-md); display: flex; justify-content: space-between; align-items: center; }
 .nav-title { font-size: var(--text-xl); font-weight: 700; color: var(--primary); text-decoration:none; }
+.nav-links { list-style:none; display:flex; gap:clamp(0.5rem,0.6vw,1rem); margin:0; padding:0; align-items:center; }
+.nav-links a { color: var(--muted); text-decoration:none; font-size: var(--text-sm); padding:6px 10px; border-radius:8px; line-height:1.1; display:inline-flex; align-items:center; gap:4px; }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--text); background:hsl(0 0% 100% / 0.08); }
+.nav-container { flex-wrap:wrap; gap:clamp(0.75rem,1vw,1.5rem); }
+@media (max-width:720px){ .nav-links { flex-wrap:wrap; row-gap:4px; } }
 
 .hero { padding: var(--space-xl) 0; text-align: center; background: linear-gradient(135deg, var(--bg) 0%, hsl(220 18% 12%) 100%); position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, var(--primary) 0%, transparent 70%); opacity: 0.03; pointer-events: none; z-index: 0; }

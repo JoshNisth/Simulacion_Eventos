@@ -4,20 +4,12 @@ body.home .hero-title{ margin:0 !important; font-size:clamp(2rem,3.2vw,3rem); }
 body.home .simulations{ padding:40px 0 48px !important; }
 body.home .section-title{ margin:0 0 32px !important; font-size:clamp(1.6rem,2.5vw,2.2rem); }
 body.home .cards-grid{ margin-top:8px !important; gap:32px !important; }
-/* Grid layout: 3 cards first row, 2 centered second row on desktop */
+/* Nuevo layout estable: 3 tarjetas arriba, 2 abajo centradas (columnas 1 y 3) */
 @media (min-width:1200px){
-	body.home .cards-grid{ display:grid; grid-template-columns:repeat(3,1fr); }
-	body.home .cards-grid > .card:nth-child(4),
-	body.home .cards-grid > .card:nth-child(5){
-		grid-column:auto;
-	}
-	body.home .cards-grid > .card:nth-child(4){ grid-column:1 / 2; justify-self:end; }
-	body.home .cards-grid > .card:nth-child(5){ grid-column:3 / 4; justify-self:start; }
-	/* Optional: add empty spacer in middle using pseudo element for better centering */
-	body.home .cards-grid::before{ content:""; grid-column:2 / 3; }
-}
-@media (min-width:1200px){
-	body.home .cards-grid > .card{ min-height:100%; }
+	body.home .cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;}
+	body.home .cards-grid > .card{width:100%;}
+	body.home .cards-grid > .card:nth-child(4){grid-column:1;grid-row:2;}
+	body.home .cards-grid > .card:nth-child(5){grid-column:3;grid-row:2;}
 }
 body.home .about{ padding:56px 0 64px !important; }
 body.home .about .section-title{ margin:0 0 24px !important; }

@@ -4,6 +4,21 @@ body.home .hero-title{ margin:0 !important; font-size:clamp(2rem,3.2vw,3rem); }
 body.home .simulations{ padding:40px 0 48px !important; }
 body.home .section-title{ margin:0 0 32px !important; font-size:clamp(1.6rem,2.5vw,2.2rem); }
 body.home .cards-grid{ margin-top:8px !important; gap:32px !important; }
+/* Grid layout: 3 cards first row, 2 centered second row on desktop */
+@media (min-width:1200px){
+	body.home .cards-grid{ display:grid; grid-template-columns:repeat(3,1fr); }
+	body.home .cards-grid > .card:nth-child(4),
+	body.home .cards-grid > .card:nth-child(5){
+		grid-column:auto;
+	}
+	body.home .cards-grid > .card:nth-child(4){ grid-column:1 / 2; justify-self:end; }
+	body.home .cards-grid > .card:nth-child(5){ grid-column:3 / 4; justify-self:start; }
+	/* Optional: add empty spacer in middle using pseudo element for better centering */
+	body.home .cards-grid::before{ content:""; grid-column:2 / 3; }
+}
+@media (min-width:1200px){
+	body.home .cards-grid > .card{ min-height:100%; }
+}
 body.home .about{ padding:56px 0 64px !important; }
 body.home .about .section-title{ margin:0 0 24px !important; }
 body.home .nav-container{ padding:12px 32px !important; }
@@ -13,4 +28,4 @@ body.home .nav-container{ padding:12px 32px !important; }
 body.home .card{ padding:32px 24px !important; }
 body.home .card-title{ margin-bottom:4px !important; }
 body.home .card-description{ margin-top:0 !important; }
-@media (min-width:768px){ body.home .cards-grid > .card:last-child:nth-child(odd){ grid-column:1 / -1; justify-self:center; width:calc((100% - var(--space-lg)) / 2); } }
+/* Removed old odd-card centering rule */

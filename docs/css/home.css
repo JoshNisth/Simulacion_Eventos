@@ -4,12 +4,17 @@ body.home .hero-title{ margin:0 !important; font-size:clamp(2rem,3.2vw,3rem); }
 body.home .simulations{ padding:40px 0 48px !important; }
 body.home .section-title{ margin:0 0 32px !important; font-size:clamp(1.6rem,2.5vw,2.2rem); }
 body.home .cards-grid{ margin-top:8px !important; gap:32px !important; }
-/* Nuevo layout estable: 3 tarjetas arriba, 2 abajo centradas (columnas 1 y 3) */
+/* Layout 3 + 2 centrado: usar 6 columnas invisibles para centrar la segunda fila */
 @media (min-width:1200px){
-	body.home .cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;}
+	body.home .cards-grid{display:grid;grid-template-columns:repeat(6,1fr);align-items:stretch;}
 	body.home .cards-grid > .card{width:100%;}
-	body.home .cards-grid > .card:nth-child(4){grid-column:1;grid-row:2;}
-	body.home .cards-grid > .card:nth-child(5){grid-column:3;grid-row:2;}
+	/* Fila 1: cada tarjeta ocupa 2 columnas */
+	body.home .cards-grid > .card:nth-child(1){grid-column:1 / span 2;}
+	body.home .cards-grid > .card:nth-child(2){grid-column:3 / span 2;}
+	body.home .cards-grid > .card:nth-child(3){grid-column:5 / span 2;}
+	/* Fila 2 centrada: dejar un gutter a ambos lados (col 1 y col 6) */
+	body.home .cards-grid > .card:nth-child(4){grid-column:2 / span 2; grid-row:2;}
+	body.home .cards-grid > .card:nth-child(5){grid-column:4 / span 2; grid-row:2;}
 }
 body.home .about{ padding:56px 0 64px !important; }
 body.home .about .section-title{ margin:0 0 24px !important; }
